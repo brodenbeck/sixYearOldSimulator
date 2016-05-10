@@ -1,10 +1,37 @@
 var app = angular.module('myModule', []);
 app.controller('myController', function($scope) {
 	var timerId = 0;
-	var words = ["gimme", "wahhh", "mine", "more"];
-	var phrases = ["and then", "i want", "ice cream"];
-	var classes = ["blue", "red", "green", "highlight-yellow", "highlight-orange", "highlight-pink", "fontSize2", "fontSize3"];
-	var allFunctions = [addWord, addPhrase, addWordDecor, addPhraseDecor];
+	var words = [
+		"gimme ",
+		"wahhh ",
+		"mine ",
+		"more "
+	];
+
+	var phrases = [
+		"and then ",
+		"i want ",
+		"ice cream "
+	];
+
+	var classes = [
+		"blue",
+		"red",
+		"green",
+		"highlight-yellow",
+		"highlight-orange",
+		"highlight-pink",
+		"fontSize2",
+		"fontSize3"
+	];
+
+	var allFunctions = [
+		addWord,
+		addPhrase,
+		addWordDecor,
+		addPhraseDecor
+	];
+
 	$scope.arr = [];
 
 	$scope.addWord = function() {
@@ -25,17 +52,12 @@ app.controller('myController', function($scope) {
 
 	$scope.addRandomFunction = function() {
 		if(timerId > 0) {
-			clearInterval(id);
-			timerId = 0;
+			stopTalking(timerId);
 		} else {
-			timerId =  setInterval(function() {
-				addRandomFunction();
-				$scope.$apply();
-			}, 250);
+			startTalking();
 		}
 	}
 
-// function declarations
 	function addWord() {
 		var newWord = {};
 		newWord.text = words[Math.floor(Math.random() * words.length)];
@@ -68,5 +90,32 @@ app.controller('myController', function($scope) {
 		var randomFunction = allFunctions[Math.floor(Math.random() * allFunctions.length)];
 		randomFunction();
 	}
+
+	function startTalking() {
+		timerId = setInterval(function() {
+			addRandomFunction();
+			$scope.$apply();
+		}, 500);
+	}
+
+	function stopTalking(id) {
+		clearInterval(id);
+		timerId = 0;
+	}
 }); // ends controller
+
+// if(timerId > 0) stopTalking, else Talk
+// stopTalking --> clearInterval
+// $scope.$apply(); --> runs a digest cycle automatically
+// startTalking() {
+// 	timerId =  setInterval(function() {
+// 		addWords();
+// 		$scope.$apply();
+// 	}, 500);
+// }
+
+// function stopTalking(id) {
+// 	clearInterval(id);
+// 	timerId = 0;
+// }
 
