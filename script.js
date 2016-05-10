@@ -104,18 +104,4 @@ app.controller('myController', function($scope) {
 	}
 }); // ends controller
 
-// if(timerId > 0) stopTalking, else Talk
-// stopTalking --> clearInterval
-// $scope.$apply(); --> runs a digest cycle automatically
-// startTalking() {
-// 	timerId =  setInterval(function() {
-// 		addWords();
-// 		$scope.$apply();
-// 	}, 500);
-// }
-
-// function stopTalking(id) {
-// 	clearInterval(id);
-// 	timerId = 0;
-// }
 
