@@ -2,13 +2,9 @@ var app = angular.module('myModule', []);
 app.controller('myController', function($scope) {
 	var timerId = 0;
 	var words = ["gimme", "wahhh", "mine", "more"];
-
 	var phrases = ["and then", "i want", "ice cream"];
-
 	var classes = ["blue", "red", "green", "highlight-yellow", "highlight-orange", "highlight-pink", "fontSize2", "fontSize3"];
-
 	var allFunctions = [addWord, addPhrase, addWordDecor, addPhraseDecor];
-
 	$scope.arr = [];
 
 	$scope.addWord = function() {
@@ -39,6 +35,7 @@ app.controller('myController', function($scope) {
 		}
 	}
 
+// function declarations
 	function addWord() {
 		var newWord = {};
 		newWord.text = words[Math.floor(Math.random() * words.length)];
