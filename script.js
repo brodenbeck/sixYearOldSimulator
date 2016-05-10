@@ -1,6 +1,6 @@
 var app = angular.module('myModule', []);
 app.controller('myController', function($scope) {
-
+	var timerId = 0;
 	var words = [
 		"gimme",
 		"wahhh",
@@ -20,7 +20,9 @@ app.controller('myController', function($scope) {
 		"green",
 		"highlight-yellow",
 		"highlight-orange",
-		"highlight-pink"
+		"highlight-pink",
+		"fontSize2",
+		"fontSize3"
 	];
 
 	var allFunctions = [
@@ -49,7 +51,19 @@ app.controller('myController', function($scope) {
 	};
 
 	$scope.addRandomFunction = function() {
-		addRandomFunction();
+		if(timerId > 0) {
+			stopTalking();
+		} else {
+			timerId =  setInterval(function() {
+				addRandomFunction();
+				$scope.$apply();
+			}, 500);
+		}
+
+		function stopTalking(id) {
+			clearInterval(id);
+			timerId = 0;
+		}
 	}
 
 	function addWord() {
@@ -86,14 +100,3 @@ app.controller('myController', function($scope) {
 	}
 }); // ends controller
 
-
-
-
-// var id = setInterval(count, 500, ??[opt.]); > number in ms, will execute the function every 1/2 minute
-// clearInterval(id); > turns setInterval off
-// var i = 0;
-// function count() {
-// 	return ++i;
-// }
-// array of defined functions by reference
-// interval(randomFx, 1000), e.g.

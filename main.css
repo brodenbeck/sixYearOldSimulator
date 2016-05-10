@@ -22,6 +22,28 @@
 	background-color: orange;
 }
 
+.fontSize2 {
+	font-size: 2em;
+}
+
+.fontSize3 {
+	font-size: 3em;
+}
+
+button {
+	width: 24%;
+	padding: 5px;
+	margin-bottom: 15px;
+	background-color: #785964;
+	color: #F1FFFA;
+}
+
+#largeButton {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 15px;
+}
+
 li {
 	display: inline-block;
 	list-style-type: none;
