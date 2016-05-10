@@ -1,3 +1,34 @@
+body {
+	background-color: #D8CFF4;
+}
+
+button {
+	width: 24.5%;
+	padding: 5px;
+	background-color: #65ADF5;
+	color: #F1FFFA;
+	border: none;
+	margin-bottom: 15px;
+}
+
+#largeButton {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 15px;
+}
+
+li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+h1 {
+	font-family: 'Indie Flower', cursive;
+	color: #A08FF3;
+	text-align: center;
+}
+
+/* talking classes */
 .red {
 	color: red;
 }
@@ -28,23 +59,4 @@
 
 .fontSize3 {
 	font-size: 3em;
-}
-
-button {
-	width: 24%;
-	padding: 5px;
-	margin-bottom: 15px;
-	background-color: #785964;
-	color: #F1FFFA;
-}
-
-#largeButton {
-	width: 100%;
-	padding: 5px;
-	margin-bottom: 15px;
-}
-
-li {
-	display: inline-block;
-	list-style-type: none;
 }

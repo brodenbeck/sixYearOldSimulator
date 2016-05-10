@@ -1,36 +1,13 @@
 var app = angular.module('myModule', []);
 app.controller('myController', function($scope) {
 	var timerId = 0;
-	var words = [
-		"gimme",
-		"wahhh",
-		"mine",
-		"more"
-	];
+	var words = ["gimme", "wahhh", "mine", "more"];
 
-	var phrases = [
-		"and then",
-		"i want",
-		"ice cream"
-	];
+	var phrases = ["and then", "i want", "ice cream"];
 
-	var classes = [
-		"blue",
-		"red",
-		"green",
-		"highlight-yellow",
-		"highlight-orange",
-		"highlight-pink",
-		"fontSize2",
-		"fontSize3"
-	];
+	var classes = ["blue", "red", "green", "highlight-yellow", "highlight-orange", "highlight-pink", "fontSize2", "fontSize3"];
 
-	var allFunctions = [
-		addWord,
-		addPhrase,
-		addWordDecor,
-		addPhraseDecor
-	];
+	var allFunctions = [addWord, addPhrase, addWordDecor, addPhraseDecor];
 
 	$scope.arr = [];
 
@@ -52,17 +29,13 @@ app.controller('myController', function($scope) {
 
 	$scope.addRandomFunction = function() {
 		if(timerId > 0) {
-			stopTalking();
+			clearInterval(id);
+			timerId = 0;
 		} else {
 			timerId =  setInterval(function() {
 				addRandomFunction();
 				$scope.$apply();
-			}, 500);
-		}
-
-		function stopTalking(id) {
-			clearInterval(id);
-			timerId = 0;
+			}, 250);
 		}
 	}
 
